@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.emillozev.todo.dialogs.DialogNewTodo;
 import com.example.emillozev.todo.implementation.TaskImpl;
 import com.example.emillozev.todo.interfaces.Priority;
 import com.example.emillozev.todo.interfaces.Status;
@@ -55,8 +56,11 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Dialog", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Dialog", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//
+                DialogNewTodo dialog = new DialogNewTodo(MainActivity.this);
+                dialog.show();
             }
         });
     }
@@ -135,12 +139,9 @@ public class MainActivity extends AppCompatActivity {
             holder.mDescription.setText(mTaskList.get(position).getDescription());
             holder.mStatusText.setText(mTaskList.get(position).getStatus().toString());
             holder.mPriority.setText(mTaskList.get(position).getPriority().toString());
-            holder.mDel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mTaskList.remove(position);
-                    mAdapter.notifyDataSetChanged();
-                }
+            holder.mDel.setOnClickListener(view -> {
+                mTaskList.remove(position);
+                mAdapter.notifyDataSetChanged();
             });
         }
 
