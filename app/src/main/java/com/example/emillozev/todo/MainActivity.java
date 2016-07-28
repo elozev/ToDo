@@ -13,6 +13,7 @@ import com.example.emillozev.todo.dialogs.DialogNewTodo;
 import com.example.emillozev.todo.implementation.TaskImpl;
 import com.example.emillozev.todo.interfaces.Priority;
 import com.example.emillozev.todo.interfaces.Status;
+import com.example.emillozev.todo.interfaces.Task;
 import com.example.emillozev.todo.recycler.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         mTaskList.add(new TaskImpl(Status.DONE, Priority.HIGH, "Walk the dog", "Go to the lake"));
         mTaskList.add(new TaskImpl(Status.DOING, Priority.LOW, "Do the dishes", "..."));
         mTaskList.add(new TaskImpl(Status.TODO, Priority.NORMAL, "Go to cinema", "..."));
+    }
+
+    public static void addTask(Task task){
+        mTaskList.add((TaskImpl) task);
+        mAdapter.notifyDataSetChanged();
     }
 
 
