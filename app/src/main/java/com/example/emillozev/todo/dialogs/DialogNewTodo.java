@@ -131,12 +131,12 @@ public class DialogNewTodo extends Dialog implements android.view.View.OnClickLi
         switch (view.getId()){
             case R.id.btn_yes:
                 Toast.makeText(ContextGetter.getApplicationCtxt(), "Accepted", Toast.LENGTH_SHORT).show();
-                while(mTitle.getText() == null || mTitle.getText().equals("")){
+                while(mTitle.getText().equals("")){
                     Toast.makeText(ContextGetter.getApplicationCtxt(), "Fill Title", Toast.LENGTH_SHORT).show();
                     break;
                 }
 
-                while(mDescription.getText() == null || mDescription.getText().equals("")){
+                while(mDescription.getText().equals("")){
                     Toast.makeText(ContextGetter.getApplicationCtxt(), "Fill Description", Toast.LENGTH_SHORT).show();
                     break;
                 }
